@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FirstStep: hackathons and programs for 1st and 2nd year students</title>
+<style>
+:root{--bg:#eef0fb;--card:#fff;--ink:#14173d;--mute:#585c85;--line:#d6d9f0;--brand:#2b2f9e;--hot:#c8352d;--mint:#0d8f6b;--mintbg:#d9f5ea;--hotbg:#ffe6e3;--stub:#14173d;--stubink:#fff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c0e24;--card:#161a40;--ink:#eceefc;--mute:#a7abd6;--line:#2c3270;--brand:#9aa2ff;--hot:#ff7a70;--mint:#4fdcae;--mintbg:#0f3a30;--hotbg:#4a1f27;--stub:#9aa2ff;--stubink:#0c0e24}}
+:root[data-theme="dark"]{--bg:#0c0e24;--card:#161a40;--ink:#eceefc;--mute:#a7abd6;--line:#2c3270;--brand:#9aa2ff;--hot:#ff7a70;--mint:#4fdcae;--mintbg:#0f3a30;--hotbg:#4a1f27;--stub:#9aa2ff;--stubink:#0c0e24}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:70rem;margin:0 auto;padding:0 1rem 3rem}
+h1,h2,h3{font-family:Georgia,serif;margin:0;line-height:1.15}
+:focus-visible{outline:3px solid var(--hot);outline-offset:2px}
+.hero{background:var(--stub);color:var(--stubink);margin:0 -1rem;padding:2.2rem 1.25rem 2.6rem;border-radius:0 0 2rem 2rem}
+.hero h1{font-size:clamp(2rem,7vw,3.6rem);max-width:16ch}
+.hero p{max-width:36rem;margin:.8rem 0 0}
+.stamp{display:inline-block;margin-top:1rem;padding:.35rem .8rem;border:2px dashed currentColor;border-radius:.5rem;font-weight:700}
+button,input[type=search]{font:inherit;color:inherit}
+.bar{display:grid;gap:.7rem;margin:1.4rem 0 .5rem}
+.bar input[type=search]{width:100%;padding:.7rem 1rem;border:2px solid var(--line);border-radius:.7rem;background:var(--card)}
+.row{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+.row b{margin-right:.3rem}
+.chip{padding:.5rem 1rem;min-height:2.75rem;border:2px solid var(--line);border-radius:2rem;background:var(--card);cursor:pointer;font-weight:600}
+.chip[aria-pressed=true]{background:var(--brand);border-color:var(--brand);color:#fff}
+.dark .chip[aria-pressed=true]{color:#0c0e24}
+.count{color:var(--mute);margin:.4rem 0}
+.sec{margin-top:2rem}.sec>h2{font-size:1.5rem}.sec>p{color:var(--mute);margin:.3rem 0 1rem;max-width:40rem}
+.grid{display:grid;gap:1rem;grid-template-columns:1fr}
+@media(min-width:48rem){.grid{grid-template-columns:1fr 1fr}}
+.card{display:grid;background:var(--card);border-radius:1rem;box-shadow:0 1px 0 var(--line),0 10px 24px -14px rgba(20,23,61,.35);overflow:hidden}
+@media(min-width:30rem){.card{grid-template-columns:6.5rem 1fr}}
+.stub{background:var(--stub);color:var(--stubink);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:.8rem;text-align:center}
+.stub b{font:700 1.7rem/1.1 Georgia,serif}.stub span{font-size:.8rem;font-weight:700}
+.body{padding:1rem 1.1rem;display:flex;flex-direction:column;gap:.5rem}
+.body h3{font-size:1.2rem}.body p{margin:0}.org{color:var(--mute);font-size:.9rem}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;list-style:none;margin:0;padding:0;font-size:.8rem;font-weight:600}
+.tags li{padding:.1rem .55rem;border-radius:2rem;background:var(--bg)}
+.tags .open{background:var(--mintbg);color:var(--mint)}.tags .shut{background:var(--hotbg);color:var(--hot)}
+.tip{padding:.5rem .7rem;border-left:4px solid var(--mint);background:var(--mintbg);border-radius:.4rem;font-size:.9rem;font-weight:600}
+.small{font-size:.82rem;color:var(--mute)}
+.acts{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:auto;align-items:center}
+.go,.btn{text-decoration:none;font-weight:700;padding:.65rem 1rem;border-radius:.6rem;min-height:2.75rem;border:0;cursor:pointer;display:inline-flex;align-items:center}
+.go{background:var(--hot);color:#fff}.btn{background:var(--bg);border:2px solid var(--line)}
+.btn[aria-pressed=true]{border-color:var(--brand);background:var(--brand);color:#fff}
+.dark .btn[aria-pressed=true]{color:#0c0e24}
+.boards{display:grid;gap:1rem;grid-template-columns:1fr}
+@media(min-width:48rem){.boards{grid-template-columns:repeat(3,1fr)}}
+.board{display:block;text-decoration:none;padding:1.1rem;border:2px solid var(--line);border-radius:1rem;background:var(--card)}
+.board b{display:block;font:700 1.1rem Georgia,serif}.board span{color:var(--mute);font-size:.9rem}
+.steps{background:var(--card);border-radius:1rem;padding:1rem 1.2rem;list-style:none;margin:0}
+.steps li{padding:.5rem 0;border-bottom:1px solid var(--line)}.steps li:last-child{border:0}
+.steps label{display:flex;gap:.7rem;align-items:flex-start;cursor:pointer}
+.steps input{width:1.4rem;height:1.4rem;margin-top:.15rem;flex:none}
+.bartrack{height:.7rem;background:var(--line);border-radius:1rem;overflow:hidden;margin:.6rem 0}
+.bartrack i{display:block;height:100%;width:0;background:var(--mint);transition:width .3s}
+.empty{padding:1.2rem;border:2px dashed var(--line);border-radius:1rem;color:var(--mute);grid-column:1/-1}
+.note{margin-top:2rem;padding:1rem;border:2px dashed var(--line);border-radius:1rem;color:var(--mute);font-size:.92rem}
+[hidden]{display:none!important}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hero">
+<h1>Your first hackathon is on the board.</h1>
+<p>Hackathons and open-source programs for first and second year students in India, with filters, saving and a getting-started checklist.</p>
+<span class="stamp">Data last checked 9 Oct 2026</span>
+
+</header>
+
+<div class="bar">
+<input type="search" id="q" placeholder="Search by name, organizer or topic (e.g. AI, robotics)" aria-label="Search listings">
+<div class="row" role="group" aria-label="Year"><b>Year</b>
+<button class="chip" data-f="year" data-v="0" aria-pressed="true" type="button">All</button>
+<button class="chip" data-f="year" data-v="1" aria-pressed="false" type="button">1st</button>
+<button class="chip" data-f="year" data-v="2" aria-pressed="false" type="button">2nd</button>
+<button class="chip" data-f="year" data-v="3" aria-pressed="false" type="button">3rd</button>
+<button class="chip" data-f="year" data-v="4" aria-pressed="false" type="button">4th</button></div>
+<div class="row" role="group" aria-label="Type"><b>Type</b>
+<button class="chip" data-f="type" data-v="all" aria-pressed="true" type="button">All</button>
+<button class="chip" data-f="type" data-v="hackathon" aria-pressed="false" type="button">Hackathons</button>
+<button class="chip" data-f="type" data-v="program" aria-pressed="false" type="button">Programs</button></div>
+<div class="row" role="group" aria-label="Show"><b>Show</b>
+<button class="chip" data-f="show" data-v="all" aria-pressed="true" type="button">Everything</button>
+<button class="chip" data-f="show" data-v="saved" aria-pressed="false" type="button">Saved only</button>
+<button class="chip" id="allyrs" aria-pressed="false" type="button">Include other years</button><button class="chip" id="reset" type="button">Reset filters</button></div>
+</div>
+<p class="count" id="count" aria-live="polite"></p>
+
+<main>
+<div id="sections"></div>
+
+<section class="sec" aria-labelledby="chk">
+<h2 id="chk">Your getting-started checklist</h2>
+<p>Tick items as you finish them. Progress is saved in this browser.</p>
+<div class="bartrack"><i id="prog"></i></div><p class="small" id="progtxt"></p>
+<ul class="steps" id="steps"></ul>
+</section>
+
+<section class="sec" aria-labelledby="live">
+<h2 id="live">Live boards: new listings every day</h2>
+<p>I could not confirm each listing on these sites. Check the organizer's page and the year of study allowed before you apply.</p>
+<div class="boards">
+<a class="board" href="https://unstop.com/hackathons" target="_blank" rel="noopener noreferrer"><b>Unstop hackathons</b><span>Filter by "Engineering students" and your state.</span></a>
+<a class="board" href="https://internshala.com/competitions/hackathons/" target="_blank" rel="noopener noreferrer"><b>Internshala competitions</b><span>Hackathons with prizes and dates.</span></a>
+<a class="board" href="https://mlh.io/events" target="_blank" rel="noopener noreferrer"><b>MLH events</b><span>Student hackathons, many online.</span></a>
+</div></section>
+</main>
+
+<p class="note">No verified, currently open internship aimed at first or second year students was found, so none is listed as open. Search the boards above for "1st year" or "2nd year" and apply only through the company's own page. Listings, fees and dates can change: always confirm on the official site before paying or applying.</p>
+</div>
+
+<script>
+(function(){
+var DATA=[
+{id:"th",sec:"open",g:"hackathon",y:[2,3,4],name:"Tech Horizon 2.0",org:"Guru Nanak Institutions Technical Campus, Hyderabad",stub:["Register by","11 Nov"],deadline:"2026-11-11",
+desc:"A 48-hour national-level hackathon run by the IEEE SMC student chapter at GNITC, held offline in November 2026. Open to UG, PG and PhD students and professionals. Teams of 3 to 6. Register and pay through the KonfHub or Unstop page.",
+tags:[["open","Open"],["","Offline"],["","Team"],["","Paid entry"]],fit:"Early-bird pricing ends 11 Oct. Accommodation is offered at ₹200 per person per day.",
+tip12:"You need a team of 3 to 6, so ask seniors to join you. First years are allowed as undergraduates.",tip34:"Pick a track that fits your final-year project and use it as a portfolio piece.",
+note:"Details came from a listing site. Confirm everything on the college page.",begin:1,
+link:["GNITC official site","https://www.gniindia.org/gnitc/"],link2:["Listing details","https://www.startupgrantsindia.com/tech-horizon-20-national-level-hackathon"]},
+{id:"hf",sec:"open",g:"program",y:[1,2,3,4],name:"Hacktoberfest 2026",org:"MLH and DEV, with DigitalOcean",stub:["All of","Oct"],deadline:"2026-10-31",
+desc:"New format this year: 300+ one-day in-person Fests plus a global online event, all about building with open-source AI. Fest cities and dates were not announced when I checked.",
+tags:[["open","Open to everyone"],["","Online and offline"],["","Open source"],["","AI/ML"]],fit:"Open source runs all year, so you can start contributing without waiting for a Fest.",
+tip12:"Attend a local Fest or the online event first. No experience needed.",tip34:"Organizers can apply to host a Fest at their college.",
+note:"Attendee sign-ups were not open when I checked. Join their mailing list.",begin:1,link:["Visit hacktoberfest.com","https://hacktoberfest.com"]},
+{id:"gsoc",sec:"annual",g:"program",y:[2,3,4],name:"Google Summer of Code",org:"Google",stub:["Usually","Mar-Apr"],
+desc:"Paid open-source mentorship. There is no year-of-study rule, but contributors must be 18 or older, and it is competitive.",
+tags:[["","Online"],["","Stipend"],["","Open source"]],fit:"Make small contributions now so your proposal looks real next spring.",
+tip12:"Too early to stress about it. Start with one small open-source fix this month.",tip34:"Prepare your proposal and shortlist projects before the spring window.",
+note:"2027 dates not confirmed. Check the official page.",link:["Official page","https://summerofcode.google.com"]},
+{id:"out",sec:"annual",g:"program",y:[2,3,4],name:"Outreachy internships",org:"Outreachy",stub:["Rounds","Yearly"],
+desc:"Paid, remote open-source internships. Eligibility is based on availability and Outreachy's own criteria, not year of study, so read the rules first.",
+tags:[["","Online"],["","Stipend"],["","Open source"]],fit:"Applications expect real contributions before you apply.",
+tip12:"Build a few small projects and start contributing, then read the eligibility rules.",tip34:"Read the eligibility rules early and start contributing.",
+note:"Round dates change yearly. Check the official page.",link:["Official page","https://www.outreachy.org"]},
+{id:"ey",sec:"closed",g:"hackathon",y:[1,2,3],name:"e-Yantra Robotics Competition 2026-27",org:"IIT Bombay",stub:["Closed","25 Aug"],
+desc:"A six-month robotics competition that teaches you from scratch. No prior robotics experience was needed. Winners can interview for the e-Yantra summer internship.",
+tags:[["shut","Registration closed"],["","Team of 2-4"],["","Robotics/IoT"]],fit:"",
+tip12:"Made for beginners. Set a reminder for August 2027 and form a team early.",tip34:"Open to all undergraduate years. Consider mentoring a junior team.",begin:1,
+link:["Follow on e-yantra.org","https://www.e-yantra.org/eyrc"]},
+{id:"gsc",sec:"closed",g:"hackathon",y:[1,2,3,4],name:"Google Solution Challenge India 2026",org:"GDG on Campus and Hack2skill",stub:["Closed","15 Apr"],
+desc:"Build an AI-powered solution with Google tools. Teams of 1 to 4, participants had to be 18 or older and enrolled in an Indian college.",
+tags:[["shut","Registration closed"],["","Online"],["","AI/ML"]],fit:"",
+tip12:"Needs age 18+. Build one small AI project in the meantime.",tip34:"Watch for the next round and prepare an idea with a clear social impact.",
+link:["See last year's page","https://promptwars.in/solutionchallenge2026.html"]}
+];
+var SECS=[["open","Open now","Confirmed open when I checked. Confirm on the official page before you pay or apply."],
+["annual","Annual programs to prepare for","These run every year. 2027 dates are not confirmed, so use the official page."],
+["closed","Recently closed: plan for the next round","Closed this cycle. Follow them so you do not miss next year."]];
+var STEPS=["Make a GitHub account and add a short profile","Complete one beginner Git and GitHub tutorial","Make one small open-source contribution (a docs fix counts)","Save two or three listings above that fit your year","Find two teammates and agree on a team name","Register for one open event on its official page","Set a calendar reminder for next year's closed programs"];
+var S={year:"0",type:"all",show:"all",q:"",all:false},saved={},done={};
+function load(k){try{return JSON.parse(localStorage.getItem(k)||"{}")}catch(e){return {}}}
+function store(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+saved=load("fs_saved");done=load("fs_done");
+var $=function(i){return document.getElementById(i)};
+function days(d){var t=new Date(d+"T23:59:59+05:30");return Math.ceil((t-new Date())/864e5)}
+function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
+function match(d){
+if(S.year!=="0"&&!S.all&&d.y.indexOf(+S.year)<0)return false;
+if(S.type!=="all"&&d.g!==S.type)return false;
+if(S.show==="saved"&&!saved[d.id])return false;
+if(S.q){var h=(d.name+" "+d.org+" "+d.desc+" "+d.tags.map(function(t){return t[1]}).join(" ")).toLowerCase();
+return S.q.toLowerCase().split(/\s+/).every(function(w){return h.indexOf(w)>-1})}
+return true}
+function card(d){
+var a=el("article","card"),s=el("div","stub");s.appendChild(el("span",0,d.stub[0]));s.appendChild(el("b",0,d.stub[1]));
+if(d.deadline){var n=days(d.deadline);s.appendChild(el("span",0,n>=0?n+" days left":"Ended"))}
+var b=el("div","body");b.appendChild(el("h3",0,d.name));b.appendChild(el("p","org",d.org));b.appendChild(el("p",0,d.desc));
+var u=el("ul","tags");d.tags.forEach(function(t){u.appendChild(el("li",t[0],t[1]))});b.appendChild(u);
+if(d.fit)b.appendChild(el("p","small",d.fit));
+var yr=+S.year;if(yr){b.appendChild(el("p","tip",yr<=2?d.tip12:d.tip34))}
+if(d.note)b.appendChild(el("p","small",d.note));
+var ac=el("div","acts");
+var l=el("a","go",d.link[0]);l.href=d.link[1];l.target="_blank";l.rel="noopener noreferrer";ac.appendChild(l);
+if(d.link2){var l2=el("a","small",d.link2[0]);l2.href=d.link2[1];l2.target="_blank";l2.rel="noopener noreferrer";ac.appendChild(l2)}
+var sv=el("button","btn",saved[d.id]?"Saved ✓":"Save");sv.type="button";sv.setAttribute("aria-pressed",!!saved[d.id]);
+sv.onclick=function(){if(saved[d.id])delete saved[d.id];else saved[d.id]=1;store("fs_saved",saved);render()};
+ac.appendChild(sv);b.appendChild(ac);a.appendChild(s);a.appendChild(b);return a}
+function render(){
+var box=$("sections"),total=0;box.textContent="";
+var yr=+S.year;
+SECS.forEach(function(sc){
+var list=DATA.filter(function(d){return d.sec===sc[0]&&match(d)});
+if(yr&&yr<=2)list.sort(function(a,b){return (b.begin||0)-(a.begin||0)});
+if(!list.length)return;total+=list.length;
+var se=el("section","sec");se.appendChild(el("h2",0,sc[1]));se.appendChild(el("p",0,sc[2]));
+var g=el("div","grid");list.forEach(function(d){g.appendChild(card(d))});se.appendChild(g);box.appendChild(se)});
+if(!total){var e=el("div","empty","Nothing matches these filters. Try clearing the search or press Reset filters.");box.appendChild(e)}
+$("count").textContent=total+" listing"+(total===1?"":"s")+" shown";$("allyrs").setAttribute("aria-pressed",S.all);
+document.querySelectorAll(".chip[data-f]").forEach(function(c){c.setAttribute("aria-pressed",S[c.dataset.f]===c.dataset.v)})}
+document.querySelectorAll(".chip[data-f]").forEach(function(c){c.onclick=function(){S[c.dataset.f]=c.dataset.v;render()}});
+$("q").oninput=function(){S.q=this.value.trim();render()};
+$("reset").onclick=function(){S={year:"0",type:"all",show:"all",q:"",all:false};$("q").value="";render()};
+$("allyrs").onclick=function(){S.all=!S.all;render()};
+if(matchMedia("(prefers-color-scheme:dark)").matches)document.body.classList.add("dark");
+function steps(){var ul=$("steps"),n=0;ul.textContent="";
+STEPS.forEach(function(t,i){var li=el("li"),lb=el("label"),cb=document.createElement("input");cb.type="checkbox";cb.checked=!!done[i];if(cb.checked)n++;
+cb.onchange=function(){if(cb.checked)done[i]=1;else delete done[i];store("fs_done",done);steps()};
+lb.appendChild(cb);lb.appendChild(el("span",0,t));li.appendChild(lb);ul.appendChild(li)});
+$("prog").style.width=(n/STEPS.length*100)+"%";$("progtxt").textContent=n+" of "+STEPS.length+" steps done"}
+steps();render();
+})();
+</script>
+</body>
+</html>
